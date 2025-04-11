@@ -5,8 +5,6 @@ __pycache__/
 # Poetry
 /.venv/
 /.pytest_cache/
-poetry.lock
-requirements.txt
 # vscode
 .vscode
 
