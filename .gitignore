@@ -19,7 +19,7 @@ db/
 Build
 
 # Env
-.env.development
+# .env.development
 .env.production
 .env.staging
 
