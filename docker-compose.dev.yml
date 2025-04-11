@@ -52,6 +52,29 @@ services:
 
     networks:
       - assignment_network
+  dbinit:
+    # Builds the container image using the Dockerfile in alembic_start
+    build:
+      context: .
+      dockerfile: Dockerfile_dbinit
+
+    # Mounts the current directory on the host to '/app' in the container.
+    # This allows changes in the host's source code to be reflected in the container
+    volumes:
+      - .:/app
+
+    # Specifies dependencies for this service.
+    # This container will wait for the 'db' container to be ready before starting.
+    depends_on:
+      - db
+    # Defines environment variables for container configuration.
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres
+      - HOST=0.0.0.0
+      - PORT=5000
+
+    networks:
+      - assignment_network
   # PostgreSQL database service
   db:
     image: postgres:15

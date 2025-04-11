@@ -1,0 +1,23 @@
+FROM python:3.11-slim
+
+
+RUN pip install poetry
+
+# Set a workdir
+WORKDIR /app
+
+COPY pyproject.toml poetry.lock ./  
+COPY .env.development alembic.ini ./
+COPY alembic ./alembic
+
+# As we are in a container, is not necessary for poetry to work
+# inside a virtual enviroment.
+RUN poetry config virtualenvs.create false
+
+# We want to use Poetry only for dependency management but not for packaging
+RUN poetry install --no-root
+
+# Copy the src of the project, test and other files are not necessary
+COPY src ./src
+
+CMD ["alembic", "upgrade", "head"]
