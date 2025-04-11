@@ -63,6 +63,8 @@ A la hora de desarrollar, es necesario mantener una consistencia, para eso hemos
 
 Es necesario descargar los archivos `.env.development` verificando que este consistente con `.env.example`. Los desarrolladores deberian tener las credenciales
 
+Se puede prescindir de las credenciales de azure o de sendgrid, pero es necesario la DATABASE_URL. Se puede copiar desde el docker-compose.dev.yml para el caso docker
+
 ## Docker
 
 Para correr el servicio de backend unsando [Docker](https://docs.docker.com/)
