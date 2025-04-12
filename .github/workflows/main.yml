@@ -1,8 +1,6 @@
 name: Main CI/CD
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
   workflow_call:
     secrets:
       CODECOV_TOKEN:

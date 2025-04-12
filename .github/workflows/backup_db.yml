@@ -2,9 +2,6 @@ name: Backup Prod Database
 run-name: Backup number ${{github.run_number}}
 
 on:
-    schedule:
-        # Cada 10 dias se ejecuta un backup
-        - cron: '0 0 */10 * *'
     workflow_dispatch:
 
 

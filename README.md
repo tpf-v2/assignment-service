@@ -153,3 +153,4 @@ Seleccionamos el App Service correspondiente
 Deploy Web App y elegimos la carpeta ``Build``
 
 ![alt text](docs/image-2.png)
+
