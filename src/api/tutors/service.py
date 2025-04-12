@@ -130,7 +130,7 @@ class TutorService:
                     role=Role.TUTOR,
                 )
                 userRepository.add_user(new_tutor)
-            
+
             self._repository.add_tutor_period_with_capacity(tutor_period)
             tutor_response = self._repository.get_tutor_by_tutor_id(tutor.id)
             return tutor_response

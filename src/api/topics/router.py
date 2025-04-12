@@ -171,7 +171,7 @@ async def add_topic(
         auth_service.assert_only_admin(authorization["token"])
 
         service = TopicService(TopicRepository(session))
-        topic_saved = service.add_topic(period,topic, TutorRepository(session))
+        topic_saved = service.add_topic(period, topic, TutorRepository(session))
 
         return TopicResponse.model_validate(topic_saved)
     except InvalidJwt:

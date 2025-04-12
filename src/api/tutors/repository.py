@@ -52,7 +52,9 @@ class TutorRepository:
 
             return tutor_period
         except Exception as e:
-            raise PeriodDuplicated(message=f"Tutor {tutor_period.tutor_id} already has {tutor_period.period_id} as period")
+            raise PeriodDuplicated(
+                message=f"Tutor {tutor_period.tutor_id} already has {tutor_period.period_id} as period"
+            )
 
     def get_tutor_by_tutor_id(self, tutor_id) -> User:
         """Devuelve un tutor a partir de su id"""
@@ -281,9 +283,7 @@ class TutorRepository:
         except exc.IntegrityError:
             raise PeriodDuplicated(message="Period can't be assigned to tutor")
 
-    def get_tutors_by_period_id_with_available_dates(
-        self, period_id: str
-    ):
+    def get_tutors_by_period_id_with_available_dates(self, period_id: str):
         """Devuelve todos los tutores cargando las fechas que el tutor selecciono"""
         with self.Session() as session:
             tutors = (
@@ -308,7 +308,7 @@ class TutorRepository:
                 )
             )
         return tutors
-    
+
     def get_evaluators_by_period_id_with_available_dates(
         self, period_id: str, is_evaluator: bool
     ):

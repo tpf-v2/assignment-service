@@ -98,7 +98,9 @@ class GroupRepository:
             if load_dates:
                 query = query.options(joinedload(Group.group_dates_slots))
 
-            groups = query.filter(Group.period_id == period).order_by(asc(Group.id)).all()
+            groups = (
+                query.filter(Group.period_id == period).order_by(asc(Group.id)).all()
+            )
             session.expunge_all()
         return groups
 
