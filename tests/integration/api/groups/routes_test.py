@@ -396,6 +396,7 @@ def test_add_reviewer(fastapi, tables):
 
 
 @pytest.mark.integration
+@pytest.mark.azure
 def test_post_groups_initial_project(fastapi, tables):
     # Arrange
     fastapi.app.dependency_overrides[get_email_sender] = override_get_email_sender
@@ -433,6 +434,7 @@ def test_post_groups_initial_project(fastapi, tables):
 
 
 @pytest.mark.integration
+@pytest.mark.azure
 def test_download_group_initial_project(fastapi):
     # Arrange
     helper = ApiHelper()
@@ -453,6 +455,7 @@ def test_download_group_initial_project(fastapi):
 
 
 @pytest.mark.integration
+@pytest.mark.azure
 def test_all_groups_initial_project_details(fastapi):
     # Arrange
     helper = ApiHelper()
@@ -583,6 +586,7 @@ def test_get_groups_by_id_being_tutor(fastapi, tables):
 
 
 @pytest.mark.integration
+@pytest.mark.azure
 def test_post_groups_final_project(fastapi, tables):
     # Arrange
     helper = ApiHelper()
@@ -619,6 +623,7 @@ def test_post_groups_final_project(fastapi, tables):
 
 
 @pytest.mark.integration
+@pytest.mark.azure
 def test_download_group_final_project(fastapi):
     # Arrange
     helper = ApiHelper()
@@ -639,6 +644,7 @@ def test_download_group_final_project(fastapi):
 
 
 @pytest.mark.integration
+@pytest.mark.azure
 def test_all_groups_final_project_details(fastapi):
     # Arrange
     helper = ApiHelper()
@@ -657,6 +663,7 @@ def test_all_groups_final_project_details(fastapi):
 
 
 @pytest.mark.integration
+@pytest.mark.azure
 def test_post_groups_intermediate_project(fastapi, tables):
     # Arrange
     helper = ApiHelper()
@@ -688,6 +695,7 @@ def test_post_groups_intermediate_project(fastapi, tables):
 
 
 @pytest.mark.integration
+@pytest.mark.azure
 def test_get_groups_intermediate_project(fastapi, tables):
     # Arrange
     helper = ApiHelper()
@@ -728,6 +736,7 @@ def test_get_groups_intermediate_project(fastapi, tables):
 
 
 @pytest.mark.integration
+@pytest.mark.azure
 def test_get_all_intermediate_project(fastapi, tables):
     # Arrange
     helper = ApiHelper()
