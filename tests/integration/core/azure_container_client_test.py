@@ -5,6 +5,7 @@ from src.core.azure_container_client import AzureContainerClient
 
 class TestAzureContainerClient:
     @pytest.mark.integration
+    @pytest.mark.azure
     def test_azure_container_client_exists(self):
         # Arrange
         container_name = api_config.container
@@ -15,6 +16,7 @@ class TestAzureContainerClient:
         assert az_client.exists() is True
 
     @pytest.mark.integration
+    @pytest.mark.azure
     def test_upload_test_file_to_azure(self):  # Arrange
         filename = "upload.txt"
         file_path = "tests/integration/core/upload.txt"
@@ -30,6 +32,7 @@ class TestAzureContainerClient:
         assert blob.blob_name == filename
 
     @pytest.mark.integration
+    @pytest.mark.azure
     def test_download_test_file_to_azure(self):  # Arrange
         filename = "test_data.txt"  # test_data is already in the storage
         expected_content = (
@@ -64,6 +67,7 @@ class TestAzureContainerClient:
             az_client.download(filename)
 
     @pytest.mark.integration
+    @pytest.mark.azure
     def test_list_blob_with_prefix_existence(self):
         # Arrange
         container_name = api_config.container
@@ -74,6 +78,7 @@ class TestAzureContainerClient:
         assert az_client.exists() is True
 
     @pytest.mark.integration
+    @pytest.mark.azure
     def test_upload_existing_test_file_to_azure(self):  # Arrange
         filename = "upload.txt"
         file_path = "tests/integration/core/upload.txt"
@@ -89,6 +94,7 @@ class TestAzureContainerClient:
         assert blob.blob_name == filename
 
     @pytest.mark.integration
+    @pytest.mark.azure
     def test_download_existing_test_file_to_azure(self):  # Arrange
         filename = "test_data.txt"  # test_data is already in the storage
         expected_content = (
@@ -123,6 +129,7 @@ class TestAzureContainerClient:
             az_client.download(filename)
 
     @pytest.mark.integration
+    @pytest.mark.azure
     def test_list_blob_with_prefix_length(self):
         # Arrange
         container_name = api_config.container
@@ -138,6 +145,7 @@ class TestAzureContainerClient:
         assert len(blobs) == 1
 
     @pytest.mark.integration
+    @pytest.mark.azure
     def test_list_blob_with_prefix_and_pattern(self):
         # Arrange
         container_name = api_config.container
