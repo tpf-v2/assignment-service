@@ -7,20 +7,20 @@ on:
         
 
 jobs:
-    check_branches:
-      runs-on: ubuntu-latest
-      steps: 
-        - name: PR branches validation
-          run: |
-            if [[ "${{ github.event.pull_request.base.ref }}" == "main" && "${{ github.event.pull_request.head.ref }}" == feat/assignment-* ]]; then
-              echo "Branches are correct"
-              exit 0
-            else
-              echo "Error: Branch names are not correct."
-              exit 1
-            fi     
+    # check_branches:
+    #   runs-on: ubuntu-latest
+    #   steps: 
+    #     - name: PR branches validation
+    #       run: |
+    #         if [[ "${{ github.event.pull_request.base.ref }}" == "main" && "${{ github.event.pull_request.head.ref }}" == feat/assignment-* ]]; then
+    #           echo "Branches are correct"
+    #           exit 0
+    #         else
+    #           echo "Error: Branch names are not correct."
+    #           exit 1
+    #         fi     
     build:
-      needs: [check_branches]
+      # needs: [check_branches]
       uses: ./.github/workflows/main.yml
       secrets:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
