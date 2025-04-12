@@ -1,5 +1,6 @@
 name: Main CI/CD
 on:
+  workflow_dispatch:
   workflow_call:
     secrets:
       CODECOV_TOKEN:

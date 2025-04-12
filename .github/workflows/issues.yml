@@ -1,5 +1,6 @@
 name: Create branch and add labels
 on:
+  workflow_dispatch:
   issues:
     types:
       - opened
