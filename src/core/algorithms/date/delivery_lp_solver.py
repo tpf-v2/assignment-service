@@ -88,7 +88,9 @@ class DeliveryLPSolver:
                 if group.tutor_id() == tutor.id:
                     if group.available_dates:
 
-                        group_tutor_possible_dates = self._find_common_dates(group, tutor)
+                        group_tutor_possible_dates = self._find_common_dates(
+                            group, tutor
+                        )
                         if group_tutor_possible_dates:
                             for evaluator in self._evaluators:
                                 self._create_evaluator_decision_variables(

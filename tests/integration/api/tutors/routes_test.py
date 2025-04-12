@@ -476,7 +476,10 @@ def test_create_duplicated_tutor(fastapi, tables):
         headers={"Authorization": f"Bearer {token.access_token}"},
     )
     assert response.status_code == 409
-    assert response.json()["detail"] == f"Tutor {110001} already has {'1C2024'} as period"
+    assert (
+        response.json()["detail"] == f"Tutor {110001} already has {'1C2024'} as period"
+    )
+
 
 @pytest.mark.integration
 def test_if_tutor_is_in_db_it_just_add_new_period(fastapi, tables):
@@ -512,7 +515,7 @@ def test_if_tutor_is_in_db_it_just_add_new_period(fastapi, tables):
         "email": "joseperez@fi.uba.ar",
         "period": "1C2025",
         "capacity": 4,
-    }    
+    }
     response = fastapi.post(
         f"{PREFIX}",
         json=tutor2,
@@ -523,6 +526,7 @@ def test_if_tutor_is_in_db_it_just_add_new_period(fastapi, tables):
     assert response.json()["name"] == "Jose"
     assert response.json()["last_name"] == "Perez"
     assert response.json()["email"] == "joseperez@fi.uba.ar"
+
 
 @pytest.mark.integration
 def test_create_tutor_with_invalid_token(fastapi, tables):
